@@ -1,0 +1,31 @@
+/* Стили для модального окна */
+.basicLightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.basicLightbox__placeholder {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.modal h1 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.modal p {
+    font-size: 16px;
+    color: #666;
+}
