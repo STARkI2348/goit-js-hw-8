@@ -65,7 +65,30 @@ const images = [
     ];
     
 const gallery = document.querySelector('.gallery');
-const creatGalleryItteam = ({preview, original, description}) => {
+const createGalleryItem = ({preview, original, description}) => {
     const galleryItem = document.createElement('li');
+    const galleryLink = document.createElement('a');
+    galleryItem.classList.add('gallery-item');
+    galleryLink.classList.add('gallery-link');
+    galleryLink.setAttribute('href', original);
+
+    const galleryImage = document.createElement('img');
+    galleryImage.classList.add('gallery-image');
+    galleryImage.setAttribute('src', preview);
+    galleryImage.setAttribute('data-source', original); 
+    galleryImage.setAttribute('alt', description);
+    
+    galleryItem.appendChild(galleryLink);
+    galleryLink.appendChild(galleryImage);
+     
+    return galleryItem;
 };
-gallery.append(...images.map(creatGalleryItem))
+gallery.append(...images.map(createGalleryItem))
+
+
+gallery.addEventListener('click', (event) => {
+    if (event.target.nodeName === 'IMG') {
+        event.preventDefault();
+    }
+});
+
