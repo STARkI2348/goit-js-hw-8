@@ -85,10 +85,12 @@ const createGalleryItem = ({preview, original, description}) => {
 };
 gallery.append(...images.map(createGalleryItem))
 
-
-gallery.addEventListener('click', (event) => {
-    if (event.target.nodeName === 'IMG') {
+gallery.addEventListener("click", (event) => {
+    if (event.target.nodeName === "IMG"){
         event.preventDefault();
-    }
+        basicLightbox
+            .create(`<img src="${event.target.getAttribute("data-source")}" width="800" height="600">`)
+            .show();
+        }
 });
 
